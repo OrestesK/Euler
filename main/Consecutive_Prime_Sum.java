@@ -1,15 +1,12 @@
 public class Consecutive_Prime_Sum {
 
     public static void main(String[] args) {
-        int MAX_SUM = 1000000;
-        int currentSum = 0;
-        int currentNumber = 6;
-
-        while ((currentSum + currentNumber) < MAX_SUM) {
+        final int MAX_SUM = 1000000;
+        int currentSum = 0, currentNumber = 6;
+        for (currentNumber = 0; currentSum + currentNumber < MAX_SUM; currentNumber++) {
             if (isPrime(currentNumber)) {
                 currentSum += currentNumber;
             }
-            currentNumber++;
         }
         System.out.println(currentSum);
     }
@@ -22,5 +19,4 @@ public class Consecutive_Prime_Sum {
         }
         return true;
     }
-
 }
