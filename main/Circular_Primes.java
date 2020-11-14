@@ -4,20 +4,26 @@ public class Circular_Primes {
     public Circular_Primes() {
         ArrayList<Integer> circularPrimes = new ArrayList<Integer>();
         ArrayList<Integer> primes = primes(1000000);
-        primes.remove(0);
-        /*
-         * for (int i = 0; i < primes.size(); i++) { ArrayList<Integer> rotations =
-         * rotate(primes.get(i)); int primesIn = 0; for (int l = 0; l <
-         * rotations.size(); l++) { if (primes.contains(rotations.get(l))) { primesIn++;
-         * } } if (primesIn == rotations.size()) { circularPrimes.add(primes.get(i)); }
-         * }
-         */
-        // System.out.println(circularPrimes.toString());
-        // System.out.println("");
-        // System.out.println(circularPrimes.size());
-        System.out.println(primes.get(0));
-        System.out.println(primes.get(1));
-        System.out.println(primes.size());
+        primes.remove(0);// removes 0
+        primes.remove(0);// removes 1
+
+        for (int i = 0; i < primes.size(); i++) {
+            ArrayList<Integer> rotations = rotate(primes.get(i));
+            int primesIn = 0;
+            for (int l = 0; l < rotations.size(); l++) {
+                if (primes.contains(rotations.get(l))) {
+                    primesIn++;
+                }
+            }
+            if (primesIn == rotations.size()) {
+                circularPrimes.add(primes.get(i));
+            }
+        }
+
+        System.out.println(circularPrimes.toString());
+        System.out.println("");
+        System.out.println(circularPrimes.size());
+        // System.out.println(primes.size());
     }
 
     public static void main(String[] args) {
